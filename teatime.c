@@ -424,7 +424,7 @@ int main(int argc,char **argv) {
 	else if (mode==MODE_VERIFY) {
 		uint32_t short_key=strtol(argv[8], NULL, 16);
 		uint32_t kss1,kss2;
-		tea1_inner(eiv1, short_key, 4, &kss1);
+		tea1_inner(eiv1, short_key, 4, (uint8_t *)&kss1);
 		kss2=ntohl(kss1);
 		printf("\nkey:%8.8x keystream:%8.8x ciphertext^keystream:%8.8x\n",short_key,kss2,ct1^kss2);
 
